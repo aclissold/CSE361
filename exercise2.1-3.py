@@ -1,6 +1,6 @@
-# DESCRIPTION:
-#
 # Exercise 2.1-3
+#
+# DESCRIPTION:
 #
 # Consider the searching problem:
 # 
