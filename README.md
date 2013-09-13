@@ -1,4 +1,4 @@
-Introduction to Algorithms
-==========================
+Design & Analysis of Algorithms
+===============================
 
-All of my solutions to the exercises and problems I've done in CSE 361.
+All of my solutions to the exercises, problems, and homework I've done in CSE 361.
