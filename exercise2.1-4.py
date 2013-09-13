@@ -11,15 +11,54 @@
 #
 # Input: Two sequences of n bits A = <a1, a2, ..., an> and
 #   B = <b1, b2, ..., bn>.
-# Output: A sequence of n + 1 bits C = <c1, c2, ..., cn, cn+1> such that C =
-#   A + B.
+# Output: A sequence of n or (n + 1) bits C = <c1, c2, ..., cn, cn+1> such
+#   that C = A + B.
 #
 # BINARY-SUM(A, B)
-# 1 for i = A.length downto 1
-# 2     if A[i] == 0 and B[i] == 0
-# 3         C[i] = 0
-# 4     elseif A[i] == 1 and B[i] == 1
-# 5         C[i] = 0
-# 6         carry = 1
-# 7     else
-# 8         C[i] = 1
+# 1  carry = 0
+# 2  Let C be a new array
+# 3  for i = A.length downto 1
+# 4      if (A[i] + B[i] + carry) == 3
+# 5         carry = 1
+# 6         C[i+1] = 1
+# 7      elseif (A[i] + B[i] + carry) == 2
+# 8         carry = 1
+# 9         C[i+1] = 0
+# 10     elseif (A[i] + B[i] + carry) == 1
+# 11        carry = 0
+# 12        C[i+1] = 1
+# 13     else
+# 14        carry = 0
+# 15        C[i+1] = 0
+# 16 if carry == 1
+# 17     C[1] = 1
+# 18 else
+# 19     C[1] = 0
+# 20 return C
+#
+# PYTHON:
+def binary_sum(A, B):
+    carry = 0
+    C = []
+    for i in reversed(xrange(len(A))):
+        if (A[i] + B[i] + carry) == 3:
+            carry = 1
+            C.insert(0, 1)
+        elif (A[i] + B[i] + carry) == 2:
+            carry = 1
+            C.insert(0, 0)
+        elif (A[i] + B[i] + carry) == 1:
+            carry = 0
+            C.insert(0, 1)
+        else:
+            carry = 0
+            C.insert(0, 0)
+    if carry == 1:
+        C.insert(0, 1)
+    return C
+
+if __name__ == '__main__':
+    A = [1, 1, 0, 0, 1, 0, 0, 1]
+    B = [1, 0, 0, 1, 1, 0, 1, 0]
+    C = binary_sum(A, B)
+    print C
