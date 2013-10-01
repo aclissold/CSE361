@@ -1,0 +1,15 @@
+Substitution Method for Solving Recurrences
+
+Exercise 4.3-1
+
+DESCRIPTION:
+
+Show that the solution of T(n) = T(n - 1) + n is O(n^2).
+
+SOLUTION:
+
+Assume the solution is O(n^2). Then,
+
+T(n) <= (n^2 - 1) + n^2
+      = 2(n^2) - 1
+      = O(n^2).
