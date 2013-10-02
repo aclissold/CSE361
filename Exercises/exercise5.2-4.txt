@@ -1,0 +1,30 @@
+Exercise 5.2-4
+
+DESCRIPTION:
+
+Use indicator random variables to solve the following problem, which is known as the "hat-check
+problem." Each of n customers gives a hat to a hat-check person at a restaurant. The hat-check
+person gives the hats back to the customers in a random order. What is the expected number of
+customers who get back their own hat?
+
+SOLUTION:
+
+Let Xi be an indicator random variable denoting whether customer number i gets their hat back
+or not. Then,
+
+    Xi = I{proper hat returned to customer i}
+       = { 1 if proper hat returned to customer i,
+         { 0 if proper hat not returned to customer i,
+
+and
+
+    X = X1 + X2 + ... + Xn.
+
+By Lemma 5.1, E[Xi] = Pr{proper hat returned to customer i}. Then,
+
+    E[X] = E[(sum from i = 1 to n of Xi)]
+         = sum from i = 1 to n of E[Xi]
+         = sum from i = 1 to n of (1/i)
+         = ln n + O(1),
+
+as in the HIRE-ASSISTANT algorithm.

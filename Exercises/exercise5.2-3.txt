@@ -1,0 +1,25 @@
+Exercise 5.2-3
+
+DESCRIPTION:
+
+Use indicator random variables to compute the expected value of the sum of n dice.
+
+SOLUTION:
+
+Let Xi be an indicator random variable denoting whether a rolled die has face-value i. Thus,
+
+    Xi = I{i is rolled}
+       = { 1 if i is rolled,
+         { 0 if i is not rolled,
+
+and X = X1 + X2 + ... + X6.
+
+For a single die,
+
+    E[X] = E[(sum from i = 1 to n of Xi)]
+    = 1 * 1/6 + 2 * 1/6 + ... + 6 * 1/6
+    = 1/6 + 2/6 + ... + 6/6
+    = 21/6
+    = 3.5
+
+and for n die, sum = n * E[X] = 3.5n.
